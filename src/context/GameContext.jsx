@@ -10,6 +10,10 @@ export function GameProvider({ children }) {
   const [arenas, setArenas] = useState([]);
   const [levels, setLevels] = useState([]);
   const [medals, setMedals] = useState([]);
+  const [userProgress, setUserProgress] = useState([]);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+
+  const toggleSound = () => setSoundEnabled(prev => !prev);
 
   useEffect(() => {
     const load = async () => {
@@ -29,8 +33,16 @@ export function GameProvider({ children }) {
     const savedId = localStorage.getItem("userId");
     if (savedId) {
       api.getUser(savedId)
-        .then(u => { if (u && u.id) setUser(u); else localStorage.removeItem("userId"); })
-        .catch(()=>localStorage.removeItem("userId"));
+        .then(u => {
+          if (u && u.id) {
+            setUser(u);
+            // Load progress
+            api.getProgress(u.id).then(p => setUserProgress(p || []));
+          } else {
+            localStorage.removeItem("userId");
+          }
+        })
+        .catch(() => localStorage.removeItem("userId"));
     }
   }, []);
 
@@ -40,6 +52,7 @@ export function GameProvider({ children }) {
     const newUser = await api.createUser({ name, email, password, coins: 0, medals: [] });
     localStorage.setItem("userId", newUser.id);
     setUser(newUser);
+    setUserProgress([]);
     return newUser;
   };
 
@@ -49,8 +62,37 @@ export function GameProvider({ children }) {
       const found = await api.findUserByEmail(email);
       const userFound = found.find(u => u.password === password);
       if (!userFound) throw new Error("Credenciales inválidas");
+
+      // Streak Logic
+      const today = new Date().toISOString().split('T')[0];
+      const lastLogin = userFound.lastLogin;
+
+      let newStreak = userFound.streak || 0;
+
+      if (lastLogin !== today) {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+        if (lastLogin === yesterdayStr) {
+          newStreak += 1;
+        } else {
+          newStreak = 1; // Reset if missed a day
+        }
+
+        // Update user
+        const updated = await api.updateUser(userFound.id, {
+          lastLogin: today,
+          streak: newStreak
+        });
+        userFound.streak = newStreak;
+        userFound.lastLogin = today;
+      }
+
       localStorage.setItem("userId", userFound.id);
       setUser(userFound);
+      const p = await api.getProgress(userFound.id);
+      setUserProgress(p || []);
       setLoadingAuth(false);
       return userFound;
     } catch (err) {
@@ -62,6 +104,7 @@ export function GameProvider({ children }) {
   const logout = () => {
     localStorage.removeItem("userId");
     setUser(null);
+    setUserProgress([]);
   };
 
   const earnCoins = async (amount) => {
@@ -93,16 +136,46 @@ export function GameProvider({ children }) {
 
   const markLevelCompleted = async (levelId, coinReward) => {
     if (!user) throw new Error("No user");
-    const existing = await api.getProgress(user.id);
-    const p = (existing || []).find(x => x.levelId === Number(levelId));
-    if (p && p.completed) return { already: true };
-    if (p) {
-      await api.updateProgress(p.id, { completed: true });
+    const existing = userProgress.find(x => x.levelId === Number(levelId));
+
+    if (existing && existing.completed) return { already: true };
+
+    if (existing) {
+      await api.updateProgress(existing.id, { completed: true });
     } else {
       await api.createProgress({ userId: user.id, levelId: Number(levelId), completed: true });
     }
+
+    // Update local state immediately
+    const newProg = await api.getProgress(user.id);
+    setUserProgress(newProg);
+
     const updatedUser = await earnCoins(coinReward);
     return { already: false, user: updatedUser };
+  };
+
+  // --- Helpers for UI ---
+  const isLevelCompleted = (levelId) => {
+    return userProgress.some(p => p.levelId === Number(levelId) && p.completed);
+  };
+
+  const isLevelUnlocked = (levelId) => {
+    // If it's the first level (ID 1), it's always unlocked
+    if (Number(levelId) === 1) return true;
+
+    // Check if previous level is completed
+    // Assuming level IDs are sequential 1, 2, 3...
+    // If your IDs are not sequential, you need a 'prevLevelId' field in your DB
+    const prevId = Number(levelId) - 1;
+    return isLevelCompleted(prevId);
+  };
+
+  const getArenaProgress = (arenaId) => {
+    const arenaLevels = levels.filter(l => Number(l.arenaId) === Number(arenaId));
+    if (arenaLevels.length === 0) return 0;
+
+    const completedCount = arenaLevels.filter(l => isLevelCompleted(l.id)).length;
+    return Math.round((completedCount / arenaLevels.length) * 100);
   };
 
   return (
@@ -118,7 +191,14 @@ export function GameProvider({ children }) {
       medals,
       earnCoins,
       redeemMedal,
-      markLevelCompleted
+      markLevelCompleted,
+      userProgress,
+      isLevelCompleted,
+      isLevelUnlocked,
+      isLevelUnlocked,
+      getArenaProgress,
+      soundEnabled,
+      toggleSound
     }}>
       {children}
     </GameContext.Provider>

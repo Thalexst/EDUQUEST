@@ -7,17 +7,21 @@
   --text: #ffffff;
   --muted: #778899;
 
-  --green: #58cc02;
-  --green-shadow: #58a700;
+  /* Vibrant Themes */
+  --theme-green: #58cc02;
+  --theme-green-shadow: #46a302;
 
-  --blue: #1cb0f6;
-  --blue-shadow: #1899d6;
+  --theme-blue: #1cb0f6;
+  --theme-blue-shadow: #1899d6;
 
-  --red: #ff4b4b;
-  --red-shadow: #ea2b2b;
+  --theme-purple: #ce82ff;
+  --theme-purple-shadow: #a568cc;
 
-  --yellow: #ffc800;
-  --yellow-shadow: #e5a500;
+  --theme-orange: #ff9600;
+  --theme-orange-shadow: #cc7800;
+
+  --theme-red: #ff4b4b;
+  --theme-red-shadow: #ea2b2b;
 
   --border: #37464f;
   --radius: 16px;
@@ -44,7 +48,6 @@ body {
   justify-content: space-between;
   align-items: center;
   background: var(--bg);
-  /* Match body bg or slightly lighter */
   padding: 10px 20px;
   border-bottom: 2px solid var(--border);
   margin-bottom: 24px;
@@ -56,7 +59,7 @@ body {
   letter-spacing: 0.5px;
   font-size: 24px;
   font-weight: 800;
-  color: var(--green);
+  color: var(--theme-green);
 }
 
 .muted {
@@ -71,7 +74,7 @@ body {
   border-radius: 999px;
   font-size: 15px;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--theme-blue);
   border: 2px solid var(--border);
 }
 
@@ -90,7 +93,6 @@ body {
   border-radius: var(--radius);
   border: 2px solid var(--border);
   box-shadow: none;
-  /* Flat style */
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -111,7 +113,7 @@ input {
 }
 
 input:focus {
-  border-color: var(--blue);
+  border-color: var(--theme-blue);
   background: var(--card-bg);
 }
 
@@ -122,14 +124,14 @@ button,
   border-radius: var(--btn-radius);
   border: none;
   cursor: pointer;
-  background: var(--green);
+  background: var(--theme-green);
   color: #fff;
   font-family: inherit;
   font-weight: 800;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  box-shadow: 0 4px 0 var(--green-shadow);
+  box-shadow: 0 4px 0 var(--theme-green-shadow);
   transition: transform 0.1s, box-shadow 0.1s;
   text-decoration: none;
   display: inline-block;
@@ -139,23 +141,23 @@ button,
 button:active,
 .btn:active {
   transform: translateY(4px);
-  box-shadow: 0 0 0 var(--green-shadow);
+  box-shadow: 0 0 0 var(--theme-green-shadow);
 }
 
 .btn-small {
   padding: 8px 16px;
   border-radius: var(--btn-radius);
-  background: var(--blue);
+  background: var(--theme-blue);
   color: #fff;
   border: none;
   cursor: pointer;
   font-weight: 700;
-  box-shadow: 0 4px 0 var(--blue-shadow);
+  box-shadow: 0 4px 0 var(--theme-blue-shadow);
 }
 
 .btn-small:active {
   transform: translateY(4px);
-  box-shadow: 0 0 0 var(--blue-shadow);
+  box-shadow: 0 0 0 var(--theme-blue-shadow);
 }
 
 .btn-ghost {
@@ -175,28 +177,53 @@ button:active,
 }
 
 .error {
-  color: var(--red);
+  color: var(--theme-red);
   margin-top: 8px;
   font-weight: 700;
 }
 
-/* Arena Card */
+/* Arena Card - DUOLINGO STYLE */
 .arena-card {
   background: var(--card-bg);
-  padding: 20px;
-  border-radius: var(--radius);
-  width: 300px;
+  padding: 24px;
+  border-radius: 24px;
+  /* Rounder */
+  width: 320px;
   border: 2px solid var(--border);
+  /* Big juicy shadow */
+  box-shadow: 0 8px 0 var(--border);
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.arena-card:active {
+  transform: translateY(4px);
   box-shadow: 0 4px 0 var(--border);
-  /* Slight 3D for cards too */
-  transition: transform 0.2s;
 }
 
 .arena-card h3 {
-  margin-top: 0;
+  margin: 12px 0 8px 0;
   color: var(--text);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
+}
+
+/* Icon placeholder circle */
+.arena-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .level-card {
@@ -222,7 +249,6 @@ button:active,
 
 pre {
   background: #1e1e1e;
-  /* Keep code blocks dark for contrast */
   padding: 12px;
   border-radius: 12px;
   color: #f1f1f1;
@@ -238,9 +264,5 @@ pre {
 
   .card {
     width: 90%;
-  }
-
-  .task-box {
-    font-size: 14px;
   }
 }

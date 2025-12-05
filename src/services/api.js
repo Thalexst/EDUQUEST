@@ -8,6 +8,9 @@ const API = axios.create({
 export const findUserByEmail = (email) =>
   API.get(`/users?email=${encodeURIComponent(email)}`).then(r => r.data);
 
+export const getUsers = () =>
+  API.get("/users").then(r => r.data);
+
 export const getUser = (id) =>
   API.get(`/users/${id}`).then(r => r.data);
 
