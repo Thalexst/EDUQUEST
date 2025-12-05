@@ -48,10 +48,11 @@
       "name": "Jefferson",
       "email": "jeff@gmail.com",
       "password": "jefferson123",
-      "coins": 0,
+      "coins": 13,
       "xp": 0,
-      "streak": 0,
-      "medals": []
+      "streak": 1,
+      "medals": [],
+      "lastLogin": "2025-12-05"
     },
     {
       "id": "8baa",
@@ -73,6 +74,50 @@
       "xp": 10,
       "streak": 0,
       "medals": []
+    },
+    {
+      "id": "f0ad",
+      "name": "pepe",
+      "email": "pepe@g.com",
+      "password": "1234",
+      "coins": 76,
+      "medals": [
+        "1",
+        "3",
+        "2",
+        "medal_shopper"
+      ],
+      "lastLogin": "2025-12-05",
+      "streak": 1,
+      "avatar": "https://api.dicebear.com/7.x/adventurer/svg?seed=Coco",
+      "inventory": [
+        "theme_dracula",
+        "theme_hacker",
+        "theme_matrix",
+        "theme_synth"
+      ],
+      "activeTheme": "synthwave"
+    },
+    {
+      "id": "c8cb",
+      "name": "tito",
+      "email": "tito@g.com",
+      "password": "1234",
+      "coins": 91,
+      "medals": [
+        "medal_hello",
+        "medal_shopper"
+      ],
+      "avatar": "https://api.dicebear.com/7.x/adventurer/svg?seed=Midnight",
+      "inventory": [
+        "frame_gold",
+        "frame_neon"
+      ],
+      "activeTheme": "default",
+      "xp": 91,
+      "lastLogin": "2025-12-05",
+      "streak": 1,
+      "activeFrame": "gold"
     }
   ],
   "arenas": [
@@ -144,8 +189,8 @@
       "title": "Variables Básicas",
       "xp": 12,
       "coinReward": 6,
-      "task": "Crea una variable llamada nombre y asígnale tu nombre. Imprime la variable con console.log.",
-      "expectedOutput": "TuNombre"
+      "task": "Crea una variable llamada nombre y asígnale el texto 'EduQuest'. Imprime la variable con console.log.",
+      "expectedOutput": "EduQuest"
     },
     {
       "id": "6",
@@ -289,6 +334,96 @@
       "userId": "7177",
       "levelId": 1,
       "completed": true
+    },
+    {
+      "id": "5dc6",
+      "userId": "bfb9",
+      "levelId": 1,
+      "completed": true
+    },
+    {
+      "id": "e1f5",
+      "userId": "bfb9",
+      "levelId": 2,
+      "completed": true
+    },
+    {
+      "id": "b774",
+      "userId": "f0ad",
+      "levelId": 1,
+      "completed": true
+    },
+    {
+      "id": "b92a",
+      "userId": "f0ad",
+      "levelId": 2,
+      "completed": true
+    },
+    {
+      "id": "f030",
+      "userId": "f0ad",
+      "levelId": 5,
+      "completed": true
+    },
+    {
+      "id": "e676",
+      "userId": "f0ad",
+      "levelId": 6,
+      "completed": true
+    },
+    {
+      "id": "9998",
+      "userId": "f0ad",
+      "levelId": 7,
+      "completed": true
+    },
+    {
+      "id": "f6a6",
+      "userId": "f0ad",
+      "levelId": 8,
+      "completed": true
+    },
+    {
+      "id": "1899",
+      "userId": "f0ad",
+      "levelId": 9,
+      "completed": true
+    },
+    {
+      "id": "ee2d",
+      "userId": "c8cb",
+      "levelId": 1,
+      "completed": true
+    },
+    {
+      "id": "6ecf",
+      "userId": "c8cb",
+      "levelId": 2,
+      "completed": true
+    },
+    {
+      "id": "c125",
+      "userId": "c8cb",
+      "levelId": 5,
+      "completed": true
+    },
+    {
+      "id": "a786",
+      "userId": "c8cb",
+      "levelId": 6,
+      "completed": true
+    },
+    {
+      "id": "c575",
+      "userId": "c8cb",
+      "levelId": 7,
+      "completed": true
+    },
+    {
+      "id": "eccf",
+      "userId": "c8cb",
+      "levelId": 8,
+      "completed": true
     }
   ],
   "transactions": [
@@ -347,6 +482,118 @@
       "type": "earn",
       "amount": 5,
       "date": "2025-12-05T02:30:11.665Z"
+    },
+    {
+      "id": "7f91",
+      "userId": "bfb9",
+      "type": "earn",
+      "amount": 5,
+      "date": "2025-12-05T04:02:42.333Z"
+    },
+    {
+      "id": "96f5",
+      "userId": "bfb9",
+      "type": "earn",
+      "amount": 8,
+      "date": "2025-12-05T04:05:50.597Z"
+    },
+    {
+      "id": "eec8",
+      "userId": "f0ad",
+      "type": "earn",
+      "amount": 5,
+      "date": "2025-12-05T04:39:30.473Z"
+    },
+    {
+      "id": "37df",
+      "userId": "f0ad",
+      "type": "earn",
+      "amount": 8,
+      "date": "2025-12-05T04:40:04.019Z"
+    },
+    {
+      "id": "1cbd",
+      "userId": "f0ad",
+      "type": "earn",
+      "amount": 6,
+      "date": "2025-12-05T04:56:48.907Z"
+    },
+    {
+      "id": "3694",
+      "userId": "f0ad",
+      "type": "earn",
+      "amount": 7,
+      "date": "2025-12-05T05:00:06.998Z"
+    },
+    {
+      "id": "3157",
+      "userId": "f0ad",
+      "type": "spend",
+      "amount": 20,
+      "date": "2025-12-05T05:00:28.066Z"
+    },
+    {
+      "id": "2a1b",
+      "userId": "f0ad",
+      "type": "earn",
+      "amount": 9,
+      "date": "2025-12-05T05:01:59.818Z"
+    },
+    {
+      "id": "f77f",
+      "userId": "f0ad",
+      "type": "spend",
+      "amount": 150,
+      "date": "2025-12-05T06:35:01.731Z"
+    },
+    {
+      "id": "945c",
+      "userId": "f0ad",
+      "type": "spend",
+      "amount": 200,
+      "date": "2025-12-05T06:36:08.019Z"
+    },
+    {
+      "id": "eabd",
+      "userId": "f0ad",
+      "type": "spend",
+      "amount": 300,
+      "date": "2025-12-05T06:36:58.382Z"
+    },
+    {
+      "id": "ef73",
+      "userId": "f0ad",
+      "type": "spend",
+      "amount": 250,
+      "date": "2025-12-05T06:41:16.546Z"
+    },
+    {
+      "id": "3551",
+      "userId": "f0ad",
+      "type": "spend",
+      "amount": 100,
+      "date": "2025-12-05T06:44:56.737Z"
+    },
+    {
+      "id": "0415",
+      "userId": "f0ad",
+      "type": "earn",
+      "amount": 11,
+      "date": "2025-12-05T06:46:16.229Z"
+    },
+    {
+      "id": "4a5b",
+      "userId": "f0ad",
+      "type": "earn",
+      "amount": 15,
+      "date": "2025-12-05T06:47:31.027Z"
+    },
+    {
+      "id": "970a",
+      "userId": "f0ad",
+      "type": "spend",
+      "amount": 50,
+      "date": "2025-12-05T06:56:29.927Z"
     }
   ],
   "medals": [
