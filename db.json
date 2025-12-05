@@ -1,0 +1,234 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "AlumnoDemo",
+      "email": "demo@ejemplo.com",
+      "password": "demo123",
+      "coins": 6,
+      "medals": [
+        "1"
+      ]
+    },
+    {
+      "id": "bfb9",
+      "name": "Jefferson",
+      "email": "jeff@gmail.com",
+      "password": "jefferson123",
+      "coins": 0,
+      "medals": []
+    },
+    {
+      "id": "8baa",
+      "name": "Christian",
+      "email": "Christian@gmail.com",
+      "password": "wa",
+      "coins": 5,
+      "medals": []
+    }
+  ],
+  "arenas": [
+    {
+      "id": "1",
+      "name": "Introducción",
+      "description": "Conceptos básicos de programación",
+      "levels": [
+        1,
+        2,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "2",
+      "name": "DOM & Eventos",
+      "description": "Interacción con la página",
+      "levels": [
+        3,
+        4
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "id": "1",
+      "arenaId": 1,
+      "title": "Hola Mundo",
+      "xp": 10,
+      "coinReward": 5,
+      "task": "Imprime 'Hola Mundo' con console.log",
+      "expectedOutput": "Hola Mundo"
+    },
+    {
+      "id": "2",
+      "arenaId": 1,
+      "title": "Suma",
+      "xp": 15,
+      "coinReward": 8,
+      "task": "Imprime 2+3 con console.log",
+      "expectedOutput": "5"
+    },
+    {
+      "id": "5",
+      "arenaId": 1,
+      "title": "Variables Básicas",
+      "xp": 12,
+      "coinReward": 6,
+      "task": "Crea una variable llamada nombre y asígnale tu nombre. Imprime la variable con console.log.",
+      "expectedOutput": "TuNombre"
+    },
+    {
+      "id": "6",
+      "arenaId": 1,
+      "title": "Tipos de Datos",
+      "xp": 14,
+      "coinReward": 7,
+      "task": "Imprime con console.log el tipo de dato de 123 usando typeof.",
+      "expectedOutput": "number"
+    },
+    {
+      "id": "7",
+      "arenaId": 1,
+      "title": "Concatenación",
+      "xp": 18,
+      "coinReward": 9,
+      "task": "Concatena 'Hola ' y 'mundo' y muéstralo con console.log.",
+      "expectedOutput": "Hola mundo"
+    },
+    {
+      "id": "8",
+      "arenaId": 1,
+      "title": "Condicional Simple",
+      "xp": 22,
+      "coinReward": 11,
+      "task": "Crea un if que imprima 'mayor' si 10 > 5.",
+      "expectedOutput": "mayor"
+    },
+    {
+      "id": "9",
+      "arenaId": 1,
+      "title": "Ciclo Básico",
+      "xp": 30,
+      "coinReward": 15,
+      "task": "Usa un for para imprimir los números del 1 al 3.",
+      "expectedOutput": "123"
+    },
+    {
+      "id": "3",
+      "arenaId": 2,
+      "title": "Seleccionar y mostrar",
+      "xp": 20,
+      "coinReward": 12,
+      "task": "Simula cambiar texto y print 'clicked'",
+      "expectedOutput": "clicked"
+    },
+    {
+      "id": "4",
+      "arenaId": 2,
+      "title": "Evento click",
+      "xp": 25,
+      "coinReward": 15,
+      "task": "Imprime 'boton' al simular click",
+      "expectedOutput": "boton"
+    }
+  ],
+  "progress": [
+    {
+      "id": "2d14",
+      "userId": "1",
+      "levelId": 1,
+      "completed": true
+    },
+    {
+      "id": "9338",
+      "userId": "1",
+      "levelId": 2,
+      "completed": true
+    },
+    {
+      "id": "c8a7",
+      "userId": "1",
+      "levelId": 5,
+      "completed": true
+    },
+    {
+      "id": "7cd9",
+      "userId": "1",
+      "levelId": 6,
+      "completed": true
+    },
+    {
+      "id": "f5a9",
+      "userId": "8baa",
+      "levelId": 1,
+      "completed": true
+    }
+  ],
+  "transactions": [
+    {
+      "id": "79da",
+      "userId": "1",
+      "type": "earn",
+      "amount": 5,
+      "date": "2025-11-25T23:00:35.688Z"
+    },
+    {
+      "id": "0ce9",
+      "userId": "1",
+      "type": "earn",
+      "amount": 8,
+      "date": "2025-11-25T23:00:50.390Z"
+    },
+    {
+      "id": "0d8d",
+      "userId": "1",
+      "type": "earn",
+      "amount": 6,
+      "date": "2025-11-25T23:03:17.127Z"
+    },
+    {
+      "id": "1ee1",
+      "userId": "1",
+      "type": "earn",
+      "amount": 7,
+      "date": "2025-11-25T23:03:49.111Z"
+    },
+    {
+      "id": "d41a",
+      "userId": "1",
+      "type": "spend",
+      "amount": 20,
+      "date": "2025-11-25T23:04:00.302Z"
+    },
+    {
+      "id": "30e2",
+      "userId": "8baa",
+      "type": "earn",
+      "amount": 5,
+      "date": "2025-11-26T01:54:06.349Z"
+    }
+  ],
+  "medals": [
+    {
+      "id": "1",
+      "name": "Bronce",
+      "costCoins": 20,
+      "description": "Medalla bronce por 20 monedas"
+    },
+    {
+      "id": "2",
+      "name": "Plata",
+      "costCoins": 50,
+      "description": "Medalla plata por 50 monedas"
+    },
+    {
+      "id": "3",
+      "name": "Oro",
+      "costCoins": 100,
+      "description": "Medalla oro por 100 monedas"
+    }
+  ]
+}
